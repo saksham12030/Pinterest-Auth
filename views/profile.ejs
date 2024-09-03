@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="containper">
+        <div class="cardper">
+            <div class="profile-picture">
+                <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Profile Picture">
+            </div>
+            <h2 class="name"><%= user.username %></h2>
+            <h3 class="username">@<%= user.fullname %></h3>
+            <p class="tagline">Lorem ipsum dolor sit.</p>
+            <p class="description">Lorem ipsum dolor sit., amet consectetur adipisicing elit.</p>
+            <a href="logout" class="button">Logout</a>
+             <form action="/upload" method="post" enctype="multipart/form-data">  <!-- without enctype we can upload the file --> 
+                <input type="text" name="filecaption" placholder="some caption">
+                <input type="file" name="file">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="cards flex">
+            <% user.post.forEach(function(poster){ %>
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/uploads/<%= poster.image %>" 
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=poster.imageText%></h5>
+                    </div>
+                </div>
+         <%   }) %>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</html>
