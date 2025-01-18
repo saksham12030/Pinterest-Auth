@@ -47,13 +47,17 @@ router.get('/profile',isLoggedIn,async function(req,res,next){
 router.post('/register',function(req,res){
   const { username,email, fullname } = req.body;
   const userData = new userModel({ username, email, fullname });
-  
-  userModel.register(userData,req.body.password)
-  .then(function(){
-    passport.authenticate("local")(req,res,function(){
-      res.redirect("/profile");
+  try {
+    userModel.register(userData,req.body.password)
+    .then(function(){
+      passport.authenticate("local")(req,res,function(){
+        res.redirect("/profile");
+      })
     })
-  })
+    
+  } catch (error) {
+    res.json({"error":error})
+  }
 })
 
 router.post("/login",passport.authenticate('local',{

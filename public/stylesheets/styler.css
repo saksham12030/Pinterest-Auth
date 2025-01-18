@@ -11,17 +11,25 @@ body{
 .container
 {
   padding-top: 13vh;
+  /* ?display: grid; */
+
   width: 1400px; 
+  height:100vh;
   margin: auto;
   columns: 6;
+  
   column-gap: 20px;
   
 }
 .container .box
 {
+  display: grid;
+  grid-template-columns: 4;
   width: 100%;
+  padding:15px 15px;
+  overflow: hidden;
+		background:black;
   margin-bottom: 10px;
-  break-inside: avoid;
   border-radius: 15px;
 }
 .container .box img

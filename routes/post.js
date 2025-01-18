@@ -4,6 +4,7 @@ const postSchema = new mongoose.Schema({
   imageText: {
     type: String,
     required: true,
+    default:""
   },
   image:{
     type:String,

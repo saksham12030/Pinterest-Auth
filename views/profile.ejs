@@ -21,21 +21,21 @@
             <p class="description">Lorem ipsum dolor sit., amet consectetur adipisicing elit.</p>
             <a href="logout" class="button">Logout</a>
              <form action="/upload" method="post" enctype="multipart/form-data">  <!-- without enctype we can upload the file --> 
-                <input type="text" name="filecaption" placholder="some caption">
-                <input type="file" name="file">
-                <input type="submit">
+                <input type="text" name="filecaption" placeholder="Enter some caption" style="outline: none; border:1px solid black; border-radius: 5px; padding:2px 10px; margin-right:10px;">
+                <input type="file" name="file" style=" max-width:2500px; cursor: pointer;">
+                <input type="submit" class="submit">
             </form>
         </div>
     </div>
     
-    <div class="container">
-        <div class="cards flex">
+    <div class="container" style="margin:20px; ">
+        <div class="cards flex" ">
             <% user.post.forEach(function(poster){ %>
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem; background-color:rgb(235, 225, 225); border: 2px solid black">
                     <img src="/images/uploads/<%= poster.image %>" 
                         class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><%=poster.imageText%></h5>
+                        <h5 class="card-title" style="font-weight: 600;"><%=poster.imageText%></h5>
                     </div>
                 </div>
          <%   }) %>
